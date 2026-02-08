@@ -1,27 +1,44 @@
 # Deep Learning–Based Surface Impedance Modeling (PEC-backed Multilayers)
 
-Deep learning surrogate model for predicting the **complex surface impedance** of **PEC-backed multilayer dielectric coatings**.
+This repository provides a **pre-publication, inference-focused showcase**
+for a deep learning approach to modeling the **complex surface impedance**
+of **PEC-backed multilayer dielectric coatings**.
 
-The model learns a mapping from material and geometric parameters (e.g., permittivity, conductivity, thicknesses, incidence angle) to surface impedance using a numerically stable real-valued target representation:
-- `log10(|Z|)`, `cos(angle(Z))`, `sin(angle(Z))`
+The core idea is a numerically stable real-valued target representation:
+- `log10(|Z|)`
+- `cos(angle(Z))`
+- `sin(angle(Z))`
 
-## What’s included
-- Neural architectures for:
-  - **2-layer lossy** coatings
-  - **3-layer lossless** coatings
-- Stable target encoding and impedance reconstruction
-- Inference examples (notebooks) that run without private datasets
+which avoids phase discontinuities while preserving full complex impedance
+information.
+
+---
+
+## Repository scope (pre-publication)
+
+This repository is intentionally **limited in scope**.
+
+It is designed to document the **methodology and representation strategy**
+used in the associated journal manuscript, without releasing proprietary
+datasets or full training pipelines prior to publication.
+
+---
+
+## What is included
+- Stable impedance target encoding and reconstruction utilities
+- Inference-related helper functions
+- Selected figures from **2-layer lossless and lossy cases** used in the paper
+
+---
 
 ## Repository structure
-- `src/models/` – model definitions (TensorFlow/Keras)
-- `src/training/` – training scripts (expect external/private datasets)
-- `src/inference/` – inference scripts
-- `src/utils/` – target encoding & reconstruction utilities
-- `examples/` – inference-only notebooks
-- `docs/` – short theory notes and project scope
+- `src/`
+  - `impedance_encoding.py` – target encoding and complex impedance reconstruction
+  - `inference_utils.py` – inference-side reconstruction helpers
+- `figures/paper_2layer/` – selected paper figures (2-layer cases)
+- `data/` – placeholder with data availability notes
 
-## Notes on data
-The datasets used for training are not publicly released. Any scripts that expect data will clearly indicate required inputs and file formats.
+---
 
 ## License
 MIT
